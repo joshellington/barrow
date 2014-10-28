@@ -1,3 +1,89 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(http://fonts.googleapis.com/css?family=Cabin:400,700);
+
+body {
+  font-family: 'Cabin', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  background: #d03416;
+  color: #fff;
+  border-top: 5px solid white;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,li {margin: 0; padding: 0;}
+
+h1 {
+  font-size: 84px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.15s color linear;
+
+  &:hover {
+    color: #ccc;
+  }
+}
+
+.tout {
+  margin-bottom: 30px;
+}
+
+.flash {
+  font-size: 12px;
+  background: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+}
+
+.button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid white;
+  padding: 7px 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 18px;
+  // border-radius: 7px;
+  transition: 0.15s background linear;
+
+  &:hover {
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+  }
+}
+
+.home {
+  z-index: 1;
+  position: absolute;
+  max-width: 600px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.background {
+  background-image: url(http://41.media.tumblr.com/c57e1454a4d11eb7764daf193235d83c/tumblr_nbyatco92Y1sfie3io1_1280.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
