@@ -4,9 +4,6 @@ class Item < ActiveRecord::Base
   belongs_to :collection
 
   def save_file
-    puts self.collection.user.access_token
-    puts self.path
-
     extension = File.extname(self.path)
     write_path = "#{Rails.root}/public/#{self.collection.id}/#{File.basename(self.path, extension)}#{extension}"
     public_path = "/#{self.collection.id}/#{File.basename(self.path, extension)}#{extension}"
