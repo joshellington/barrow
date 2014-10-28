@@ -1,0 +1,1 @@
+DROPBOX = DropboxOAuth2Flow.new(APP_CONFIG['dropbox_key'], APP_CONFIG['dropbox_secret'], APP_CONFIG['dropbox_redirect_uri'], {}, :dropbox_auth_csrf_token)

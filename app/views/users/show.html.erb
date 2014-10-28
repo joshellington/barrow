@@ -1,0 +1,11 @@
+<% if @user %>
+  <h2><%= @user.display_name %></h2>
+  <h3><%= @user.email %></h3>
+
+  <% @folders["contents"].each do |file| %>
+    <p><%= file.inspect %></p>
+    <img src="<%= dropbox_thumbnail(file["path"], "xl") %>">
+  <% end %>
+<% else %>
+  <h2>Please login!</h2>
+<% end %>

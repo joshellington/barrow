@@ -1,0 +1,9 @@
+<h1>Barrow</h1>
+<h2>An API for your photos, in your Dropbox.</h2>
+
+<% if @current_user %>
+  <%= @current_user.display_name %>
+  <a href="/sessions/destroy">Logout</a>
+<% else %>
+  <a href="<%= @authorize_url %>" class="button">Login to Dropbox</a>
+<% end %>
