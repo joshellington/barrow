@@ -8,8 +8,8 @@ class Item < ActiveRecord::Base
     puts self.path
 
     extension = File.extname(self.path)
-    write_path = "#{Rails.root}/public/#{File.basename(self.path, extension)}#{extension}"
-    public_path = "/#{File.basename(self.path, extension)}#{extension}"
+    write_path = "#{Rails.root}/public/#{self.collection.id}/#{File.basename(self.path, extension)}#{extension}"
+    public_path = "/#{self.collection.id}/#{File.basename(self.path, extension)}#{extension}"
 
     unless File.file?(write_path)
       if self.path

@@ -1,9 +1,18 @@
 class Collection < ActiveRecord::Base
   before_create :set_uid
+  after_create :create_folder
   after_save :create_items
 
   has_many :items
   belongs_to :user
+
+  def create_folder
+    path = "#{Rails.root}/public/#{self.id}"
+    
+    unless Dir.exist? path
+      Dir.mkdir path
+    end
+  end
 
   def create_items
     @client = DropboxClient.new(self.user["access_token"])
