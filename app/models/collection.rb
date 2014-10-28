@@ -2,6 +2,7 @@ class Collection < ActiveRecord::Base
   before_create :set_uid
   after_create :create_folder
   after_save :create_items
+  after_touch :create_items
 
   has_many :items
   belongs_to :user

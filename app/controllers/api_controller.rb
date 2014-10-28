@@ -15,10 +15,15 @@ class ApiController < ApplicationController
 
       @delta["entries"].each do |file|
         if file[1]["is_dir"]
-          Collection.where(dropbox_path: file[1]["path"]).first_or_create do |collection|
+          collection = Collection.find_by(dropbox_path: file[1]["path"])
+
+          if collection
+            collection.save
+          else
+            collection = Collection.new
             collection.dropbox_path = file[1]["path"]
-            collection.user_id = @user.id
-            collection.save!
+            collection.user = @user
+            collection.save
           end
         end
       end

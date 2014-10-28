@@ -40,3 +40,6 @@ gem 'spring',        group: :development
 
 # Dropbox gem
 gem 'dropbox-sdk', require: 'dropbox_sdk'
+
+# Resque for background jobs
+gem 'resque'

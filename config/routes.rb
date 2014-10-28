@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  require 'resque/server'
+  Barrow::Application.routes.draw do
+    mount Resque::Server.new, at: "/resque"
+  end
+
   post 'api/update' => 'api#update', defaults: {format: 'text'}
   get 'api/:uid' => 'api#show'
 
