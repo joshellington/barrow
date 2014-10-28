@@ -11,15 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028033112) do
+ActiveRecord::Schema.define(version: 20141028054722) do
 
   create_table "collections", force: true do |t|
     t.string   "uid"
-    t.integer  "dropbox_uid"
     t.integer  "user_id"
     t.string   "dropbox_path"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "info"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "path"
+    t.string   "rev"
+    t.string   "client_mtime"
+    t.string   "icon"
+    t.integer  "bytes"
+    t.string   "modified"
+    t.string   "size"
+    t.string   "root"
+    t.string   "mime_type"
+    t.integer  "revision"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "collection_id"
+    t.string   "public_path"
   end
 
   create_table "users", force: true do |t|

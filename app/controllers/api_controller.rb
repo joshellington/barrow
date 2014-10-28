@@ -7,17 +7,19 @@ class ApiController < ApplicationController
 
   def update
     users = params["delta"]["users"]
-    deltas = []
 
     users.each do |user_id|
-      user = User.find_by(dropbox_uid: user_id)
-      client = DropboxClient.new(user["access_token"])
+      @user = User.find_by(dropbox_uid: user_id)
+      client = DropboxClient.new(@user["access_token"])
       @delta = client.delta(nil, '/Barrow')
-      deltas << @delta
 
       @delta["entries"].each do |file|
-        unless file[1]["is_dir"]
-          dropbox_thumbnail(file[1]["path"], user["access_token"], "xl")
+        if file[1]["is_dir"]
+          Collection.where(dropbox_path: file[1]["path"]).first_or_create do |collection|
+            collection.dropbox_path = file[1]["path"]
+            collection.user_id = @user.id
+            collection.save!
+          end
         end
       end
     end

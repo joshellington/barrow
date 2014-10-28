@@ -2,9 +2,12 @@
   <h2><%= @user.display_name %></h2>
   <h3><%= @user.email %></h3>
 
-  <% @folders["contents"].each do |file| %>
-    <p><%= file.inspect %></p>
-    <img src="<%= dropbox_thumbnail(file["path"], "xl") %>">
+  <% @data.each do |collection| %>
+    <h4><%= collection["collection"]["dropbox_path"] %></h4>
+    <% collection["items"].each do |item| %>
+      <p><%= item.inspect %></p>
+      <img src="<%= item.public_path %>">
+    <% end %>
   <% end %>
 <% else %>
   <h2>Please login!</h2>

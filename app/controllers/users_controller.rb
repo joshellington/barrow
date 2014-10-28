@@ -3,6 +3,22 @@ class UsersController < ApplicationController
     if session[:user_id]
       @user = current_user
       @client = DropboxClient.new(current_user["access_token"])
+      @collections = Collection.where(user: @user)
+
+      @data = []
+      
+      @collections.each do |collection|
+        items = Item.where(collection: collection)
+
+        if items.size > 0
+          data = {
+            "collection" => collection,
+            "items" => items
+          }
+
+          @data << data
+        end
+      end
 
       begin
         @folders = @client.metadata('/Barrow/dan')
