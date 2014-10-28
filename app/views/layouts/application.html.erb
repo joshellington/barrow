@@ -15,7 +15,30 @@
     <p class="alert flash"><%= alert %></p>
   <% end %>
 
+  <header>
+    <div class="inner">
+      <h1 class="logo"><a href="/">Barrow</a></h1>
+
+      <nav>
+        <ul>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/about">About</a></li>
+          <% if current_user %>
+            <li><a href="/account">My Account</a></li>
+            <li><a href="/sessions/destroy">Logout</a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <%= yield %>
+
+  <footer>
+    <div class="inner">
+      <p>&copy; 2014. Built by <a href="http://joshellington.com">Josh Ellington</a>.</p>
+    </div>
+  </footer>
 
 </body>
 </html>

@@ -1,14 +1,18 @@
-<% if @user %>
-  <h2><%= @user.display_name %></h2>
-  <h3><%= @user.email %></h3>
+<div class="account">
+  <div class="inner">
+    <% if @user %>
+      <h2><%= @user.display_name %></h2>
+      <h3><%= @user.email %></h3>
 
-  <% @data.each do |collection| %>
-    <h4><%= collection["collection"]["dropbox_path"] %></h4>
-    <% collection["items"].each do |item| %>
-      <p><%= item.inspect %></p>
-      <img src="<%= item.public_path %>">
+      <% @data.each do |collection| %>
+        <h4><%= collection["collection"]["dropbox_path"] %></h4>
+        <% collection["items"].each do |item| %>
+          <p><%= item.inspect %></p>
+          <img src="<%= item.public_path %>">
+        <% end %>
+      <% end %>
+    <% else %>
+      <h2>Please login!</h2>
     <% end %>
-  <% end %>
-<% else %>
-  <h2>Please login!</h2>
-<% end %>
+  </div>
+</div>

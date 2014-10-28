@@ -1,15 +1,22 @@
 <div class="home">
   <div class="tout">
-    <h1>Barrow</h1>
-    <h2>An API for the photos in your Dropbox.</h2>
+    <div class="inner">
+      <% if @current_user %>
+        <h2>Hi, <%= @current_user["display_name"] %>.</h2>
+        <a href="/account" class="button">My Account</a>
+      <% else %>
+        <h2>An API for the photos in your Dropbox.</h2>
+        <a href="<%= @authorize_url %>" class="button">Login to Dropbox</a>
+      <% end %>
+    </div>
+
+    <div class="background"></div>
   </div>
 
-  <% if @current_user %>
-    <a href="/account" class="button">My Account</a>
-    <br><br><a href="/sessions/destroy">Logout</a>
-  <% else %>
-    <a href="<%= @authorize_url %>" class="button">Login to Dropbox</a>
-  <% end %>
+  <div class="content">
+    <div class="inner thin">
+      <h3>Tired of setting up a new CMS for each of your clients? Barrow is here to help.</h3>
+      <p>We provide an easy process to get your clients' images into a readily consumable API. With libraries for every major language and extreme flexibilty, Barrow will make your life easier.</p>
+    </div>
+  </div>
 </div>
-
-<div class="background"></div>
