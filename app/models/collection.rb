@@ -8,7 +8,7 @@ class Collection < ActiveRecord::Base
   belongs_to :user
 
   def create_folder
-    path = "#{Rails.root}/public/#{self.id}"
+    path = "#{Rails.root}/public/#{self.uid}"
     
     unless Dir.exist? path
       Dir.mkdir path

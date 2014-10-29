@@ -6,8 +6,8 @@ class SaveItem
 
     if item
       extension = File.extname(item["path"])
-      write_path = "#{Rails.root}/public/#{item.collection["id"]}/#{File.basename(item["path"], extension)}#{extension}"
-      public_path = "/#{item.collection["id"]}/#{File.basename(item["path"], extension)}#{extension}"
+      write_path = "#{Rails.root}/public/#{item.collection["uid"]}/#{File.basename(item["path"], extension)}#{extension}"
+      public_path = "/#{item.collection["uid"]}/#{File.basename(item["path"], extension)}#{extension}"
 
       unless File.file?(write_path)
         if item["path"]

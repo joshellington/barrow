@@ -4,7 +4,7 @@ development:
   aws_bucket: ###
   dropbox_key: p9rbwo0f7pes0zv
   dropbox_secret: n3z1rldbsppv7jg
-  dropbox_redirect_uri: 'http://localhost:3000/sessions/create'
+  dropbox_redirect_uri: 'http://localhost:5000/sessions/create'
   diffbot: 2c6452c40aed5176969bdc31587b5269
 
 staging:
@@ -13,7 +13,7 @@ staging:
   aws_bucket: ###
   dropbox_key: p9rbwo0f7pes0zv
   dropbox_secret: n3z1rldbsppv7jg
-  dropbox_redirect_uri: 'http://localhost:3000/sessions/create'
+  dropbox_redirect_uri: 'http://localhost:5000/sessions/create'
   diffbot: 2c6452c40aed5176969bdc31587b5269
 
 production:
@@ -22,5 +22,5 @@ production:
   aws_bucket: ###
   dropbox_key: p9rbwo0f7pes0zv
   dropbox_secret: n3z1rldbsppv7jg
-  dropbox_redirect_uri: 'http://localhost:3000/sessions/create'
+  dropbox_redirect_uri: 'http://localhost:5000/sessions/create'
   diffbot: 2c6452c40aed5176969bdc31587b5269
