@@ -19,7 +19,7 @@ class Collection < ActiveRecord::Base
 
   protected
     def create_folder
-      path = "#{Rails.root}/public/#{self.uid}"
+      path = "#{Rails.root}/public/uploads/#{self.uid}"
       
       unless Dir.exist? path
         Dir.mkdir path
