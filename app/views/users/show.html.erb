@@ -4,8 +4,10 @@
       <h2><%= @user.display_name %></h2>
       <h3><%= @user.email %></h3>
 
+      <p><a href="#" class="refresh" data-uid="<%= @user.dropbox_uid %>">Refresh</a></p><br><br>
+
       <% @data.each do |collection| %>
-        <h4><%= collection["collection"]["dropbox_path"] %></h4>
+        <h3><%= collection["collection"]["dropbox_path"] %></h3>
         <% collection["items"].each do |item| %>
           <p><%= item.inspect %></p>
           <img src="<%= item.public_path %>">
