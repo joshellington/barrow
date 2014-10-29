@@ -14,9 +14,12 @@ class SaveItem
       begin
         thumb = client.get_file_and_metadata(item["path"])
         unless File.file?(write_path)
-          File.open(write_path, 'w+'){|f| f.write thumb[0].to_s.force_encoding("UTF-8") }
-          item.public_path = public_path
-          item.save
+          File.open(write_path, 'w+') do |f|
+            f.write(thumb[0].to_s.force_encoding("UTF-8"))
+            item.public_path = public_path
+            item.image = f
+            item.save
+          end
         end
       rescue RuntimeError => e
         puts e.inspect

@@ -43,3 +43,7 @@ gem 'dropbox-sdk', require: 'dropbox_sdk'
 
 # Resque for background jobs
 gem 'resque'
+
+# Image resizing, uploads
+gem 'paperclip'
+gem 'aws-sdk'

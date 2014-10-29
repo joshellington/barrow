@@ -10,7 +10,7 @@
         <h3><%= collection["collection"]["dropbox_path"] %></h3>
         <% collection["items"].each do |item| %>
           <p><%= item.inspect %></p>
-          <img src="<%= item.public_path %>">
+          <img src="<%= item.image.url(:large) %>">
         <% end %>
       <% end %>
     <% else %>

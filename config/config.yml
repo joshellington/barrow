@@ -1,7 +1,7 @@
 development:
-  aws_key: ###
-  aws_secret: ###
-  aws_bucket: ###
+  access_key_id: AKIAIOL5KEKMUT7VNYXA
+  secret_access_key: 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
+  bucket: barrow-dev
   dropbox_key: p9rbwo0f7pes0zv
   dropbox_secret: n3z1rldbsppv7jg
   dropbox_redirect_uri: 'http://localhost:5000/sessions/create'
