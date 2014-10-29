@@ -12,8 +12,9 @@ class SaveItem
       unless File.file?(write_path)
         if item["path"]
           client = DropboxClient.new(item.collection.user["access_token"])
-          thumb = client.get_file(item["path"])
-          File.open(write_path, 'w+'){|f| f.write thumb.to_s.force_encoding("UTF-8") }
+          thumb = client.get_file_and_metadata(item["path"])
+
+          File.open(write_path, 'w+'){|f| f.write thumb[0].to_s.force_encoding("UTF-8") }
           item.public_path = public_path
           item.save
         end

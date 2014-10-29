@@ -7,14 +7,17 @@ class User < ActiveRecord::Base
   end
 
   def self.create_from_dropbox(account_info, response)
-    pp account_info
-    pp response
+    user = User.find_by(dropbox_uid: response[1])
 
-    create! do |user|
-      user.dropbox_uid = response[1]
-      user.display_name = account_info["display_name"]
-      user.email = account_info["email"]
-      user.access_token = response[0]
+    if user
+      user.update_columns(access_token: response[0])
+    else
+      create! do |user|
+        user.dropbox_uid = response[1]
+        user.display_name = account_info["display_name"]
+        user.email = account_info["email"]
+        user.access_token = response[0]
+      end
     end
   end
 end
