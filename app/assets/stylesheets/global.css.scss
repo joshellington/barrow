@@ -1,0 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Sintony:400,700);
+
+$accent: #38bd8b;
+
+body {
+  font-family: 'Sintony', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  background: #fff;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,li {margin: 0; padding: 0;}
+
+h1 {
+  font-size: 32px;
+  color: #fff;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+p {
+  font-size: 14px;
+}
+
+a {
+  color: $accent;
+  text-decoration: none;
+  transition: 0.15s color linear;
+
+  &:hover {
+    color: #ccc;
+  }
+}
+
+.inner {
+  width: 960px;
+  margin: 0 auto;
+
+  &.thin {
+    width: 600px;
+  }
+}
+
+header {
+  background: $accent;
+  overflow: hidden;
+  padding: 15px 0;
+
+  h1 {
+    float: left;
+    font-size: 24px;
+  }
+
+  a {
+    color: lighten($accent, 60%);
+  }
+}
+
+nav {
+  float: right;
+  
+  ul li {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 15px;
+    line-height: 31px;
+  }
+}
+
+footer {
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  margin-top: 30px;
+}

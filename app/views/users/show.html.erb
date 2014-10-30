@@ -1,17 +1,34 @@
 <div class="account">
   <div class="inner">
     <% if @user %>
-      <h2><%= @user.display_name %></h2>
-      <h3><%= @user.email %></h3>
+      <div class="account-info">
+        <p><strong><%= @user.display_name %></strong></p>
+        <p><%= @user.email %></p>
 
-      <p><a href="#" class="refresh" data-uid="<%= @user.dropbox_uid %>">Refresh</a></p><br><br>
+        <p><a href="#" class="refresh" data-uid="<%= @user.dropbox_uid %>">Refresh</a> / <a href="/logout">Logout</a></p>
+      </div>
 
-      <% @data.each do |collection| %>
-        <h3><%= collection["collection"]["dropbox_path"] %></h3>
-        <% collection["items"].each do |item| %>
-          <p><%= item.inspect %></p>
-          <img src="<%= item.image.url(:large) %>">
-        <% end %>
+      <% @data.each do |obj| %>
+        
+        <div class="collection">
+          <div class="collection-info">
+            <% if obj["collection"]["title"] %>
+              <h3><%= obj["collection"]["title"] %></h3>
+            <% else %>
+              <h3>Untitled</h3>
+            <% end %>
+
+            <% if obj["collection"]["description"] %>
+              <p><%= obj["collection"]["description"] %></p>
+            <% end %>
+          </div>
+          
+          <% obj["items"].each do |item| %>
+            <!-- <p><%= item.inspect %></p> -->
+            <img src="<%= item.image.url(:large) %>">
+          <% end %>
+        </div>
+
       <% end %>
     <% else %>
       <h2>Please login!</h2>

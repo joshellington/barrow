@@ -32,19 +32,26 @@ class Collection < ActiveRecord::Base
 
       @folders["contents"].each do |content|
         unless content["is_dir"]
-          Item.where(path: content["path"]).first_or_create do |item|
-            item.path = content["path"]
-            item.rev = content["rev"]
-            item.client_mtime = content["client_mtime"]
-            item.icon = content["icon"]
-            item.bytes = content["bytes"]
-            item.modified = content["modified"]
-            item.size = content["size"]
-            item.root = content["root"]
-            item.mime_type = content["mime_type"]
-            item.revision = content["revision"]
-            item.collection = self
-            item.save!
+          is_info = [".yaml", ".yml"].any? {|ext| content["path"].include?(ext)}
+          
+          if is_info
+            info = YAML.load(@client.get_file(content["path"]))
+            self.update_columns(title: info["title"], description: info["description"])
+          else
+            Item.where(path: content["path"]).first_or_create do |item|
+              item.path = content["path"]
+              item.rev = content["rev"]
+              item.client_mtime = content["client_mtime"]
+              item.icon = content["icon"]
+              item.bytes = content["bytes"]
+              item.modified = content["modified"]
+              item.size = content["size"]
+              item.root = content["root"]
+              item.mime_type = content["mime_type"]
+              item.revision = content["revision"]
+              item.collection = self
+              item.save!
+            end
           end
         end
       end

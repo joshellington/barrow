@@ -4,6 +4,37 @@
   padding: 30px 0;
 }
 
-.account img {
-  max-width: 100%;
+.account-info {
+  margin-bottom: 30px;
+
+  h2, h3, p {
+    display: inline-block;
+    margin-right: 15px;
+  }
+}
+
+.collection {
+  margin-bottom: 30px;
+
+  h3, p {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  h3 {}
+
+  p {
+    margin-top: 15px;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+.collection-info {
+  background: black;
+  padding: 30px 0;
+  color: #fff;
 }
